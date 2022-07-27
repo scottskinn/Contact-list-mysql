@@ -23,12 +23,12 @@ app.get('/api/get', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    // const sqlInsert = `INSERT INTO contact_db (name, email, contact) VALUES ('John smith', 'johnsmith@gmal.com', '123412345')`;
-    // db.query(sqlInsert, (err, result) => {
-    //     console.log('error', err);
-    //     console.log('result', result);
-    // })
-    // res.send('Hello World');
+    const sqlInsert = `INSERT INTO contact_db (name, email, contact) VALUES ('John smith', 'johnsmith@gmal.com', '123412345')`;
+    db.query(sqlInsert, (err, result) => {
+        console.log('error', err);
+        console.log('result', result);
+    })
+    res.send('Hello World');
 })
 
 app.listen(3001, () => {
