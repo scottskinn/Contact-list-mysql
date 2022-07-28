@@ -19,21 +19,45 @@ const Edit = () => {
 
     const navigate = useNavigate();
 
+    const { id } = useParams();
+
+    useEffect(() => {
+        if (id) {
+            axios.get(`http://localhost:3001/api/get/${id}`).then(response => {
+                setState({ ...response.data });
+            });
+        }
+    }, [id])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!name || !email || !contact) {
             toast.error("Please fill all the fields");
         } else {
-            axios.post('http://localhost:3001/api/post', {
-                name,
-                email,
-                contact
-            }).then(() => {
-                setState({ name: '', email: '', contact: '' });
-            }).catch((err) => {
-                console.log(err);
-            });
-            toast.success("Contact added successfully");
+            if (!id) {
+                axios.post('http://localhost:3001/api/post', {
+                    name,
+                    email,
+                    contact
+                }).then(() => {
+                    setState({ name: '', email: '', contact: '' });
+                }).catch((err) => {
+                    console.log(err);
+                });
+                toast.success("Contact added successfully");
+            } else {
+                axios.put(`http://localhost:3001/api/update/${id}`, {
+                    name,
+                    email,
+                    contact
+                }).then(() => {
+                    setState({ name: '', email: '', contact: '' });
+                }).catch((err) => {
+                    console.log(err);
+                });
+                toast.success("Contact updated successfully");
+            }
+
             setTimeout(() => navigate('/'), 500); 
         }
     }
@@ -53,7 +77,7 @@ const Edit = () => {
                 id="name"
                 name="name"
                 placeholder="Enter Name"
-                value={name}
+                value={name || ''}
                 onChange={handleInputChange}
                 />
                 {/* Email */}
@@ -63,7 +87,7 @@ const Edit = () => {
                 id="email"
                 name="email"
                 placeholder="Enter Your Email"
-                value={email}
+                value={email || ''}
                 onChange={handleInputChange}
                 />
                 {/* Contact */}
@@ -73,10 +97,10 @@ const Edit = () => {
                 id="contact"
                 name="contact"
                 placeholder="Enter Your Contact #"
-                value={contact}
+                value={contact || ''}
                 onChange={handleInputChange}
                 />
-                <input type="submit" value="Save" />
+                <input type="submit" value={id ? "Update" : "Save"} />
                 <Link to='/'>
                     <input type='button' value='Go Back' />
                 </Link>

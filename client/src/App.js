@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Edit from './pages/Edit';
 import Home from './pages/Home';
+import View from './pages/View';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Routes>
           <Route path='/' element={ <Home /> } />
           <Route path='/addContact' element={ <Edit /> } />
+          <Route path='/update/:id' element={ <Edit /> } />
+          <Route path='/view/:id' element={ <View /> } />
 
         </Routes>
       </div>
