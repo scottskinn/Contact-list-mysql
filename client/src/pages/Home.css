@@ -6,9 +6,44 @@
 
 .main {
     margin-top: 150px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.table {
+    display: grid;
+    justify-content: center;
+
+}
+
+.table-rows {
+    padding: 10px;
     align-items: center;
     justify-content: center;
 }
 
+.rows {
+    padding: 3px;
+}
 
+.btn {
+    border: none;
+    padding: 10px;
+    margin: 3px;
+    cursor: pointer;
+    color: white;
+    border-radius: 4px;
+}
 
+.btn-contact {
+    background-color: lime;
+}
+
+.edit-btn {
+    background-color: blue;
+}
+
+.view-btn {
+    background-color: goldenrod;
+}

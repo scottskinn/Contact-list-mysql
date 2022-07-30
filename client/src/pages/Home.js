@@ -38,7 +38,7 @@ const Home = () => {
             <Link to='/addContact'>
                 <button className='btn btn-contact'>Add Contact</button>
             </Link>
-            <table>
+            <table className='table'>
                 <thead>
                     <tr>
                         <th className='table-rows'>ID#</th>
@@ -50,13 +50,16 @@ const Home = () => {
                     </tr>
                 </thead>
                 <tbody>
+                    
                     {data.map((item, index) => {
                         return (
                             <tr key={item.id}>
-                                <th scope='row'>{index+1}</th>
-                                <td>{item.name}</td>
-                                <td>{item.email}</td>
-                                <td>{item.contact}</td>
+                                <th scope='row' className='rows'>
+                                    {index+1}
+                                </th>
+                                <td className='rows'>{item.name}</td>
+                                <td className='rows'>{item.email}</td>
+                                <td className='rows'>{item.contact}</td>
                                 <td>
                                     <Link to={`/update/${item.id}`}>
                                         <button className='btn edit-btn'>Edit</button>

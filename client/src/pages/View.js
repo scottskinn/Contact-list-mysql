@@ -38,7 +38,7 @@ const View = () => {
                     <br />
 
                     <Link to='/'>
-                    <div className="btn btn-edit">Go Back</div>
+                    <button className="btn btn-view">Go Back</button>
                     </Link>
                 </div>
 
