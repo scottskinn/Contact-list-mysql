@@ -41,17 +41,17 @@ app.post('/api/post', (req, res) => {
     });
 });
 
-// app.delete('/api/remove/:id', (req, res) => {
-//     const id = req.params.id;
-//     const sqlRemove = `DELETE FROM contact_db WHERE id = ?`;
-//     db.query(sqlRemove, id , (err, result) => {
-//         if(err) {
-//             console.log(err);
-//         }
-//         // res.send(result);
-//     });
+app.delete('/api/remove/:id', (req, res) => {
+    const {id} = req.params;
+    const sqlRemove = `DELETE FROM contact_db WHERE id = ${id}`;
+    db.query(sqlRemove, (err, result) => {
+        if(err) {
+            console.log(err);
+        }
+        res.send(result);
+    });
 
-// });  
+});  
 
 app.get('/api/get/:id', (req, res) => {
     const { id } = req.params;

@@ -12,9 +12,12 @@
 }
 
 .table {
-    display: grid;
-    justify-content: center;
-
+    border-collapse: collapse;
+    margin: auto;
+    max-width: 800px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .table-rows {
@@ -23,21 +26,28 @@
     justify-content: center;
 }
 
+.table tbody tr {
+    padding: 10px;
+    margin: 10px;
+}
+
 .rows {
-    padding: 3px;
+    margin: 5px;
+    padding: 10px;
+    text-align: left;
 }
 
 .btn {
     border: none;
     padding: 10px;
-    margin: 3px;
+    margin: 6px;
     cursor: pointer;
     color: white;
     border-radius: 4px;
 }
 
 .btn-contact {
-    background-color: lime;
+    background-color: green;
 }
 
 .edit-btn {
@@ -46,4 +56,8 @@
 
 .view-btn {
     background-color: goldenrod;
+}
+
+.delete-btn {
+    background-color: red;
 }

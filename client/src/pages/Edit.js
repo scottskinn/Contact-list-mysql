@@ -86,7 +86,7 @@ const Edit = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter Your Email"
+                placeholder="Enter Email"
                 value={email || ''}
                 onChange={handleInputChange}
                 />
@@ -96,7 +96,7 @@ const Edit = () => {
                 type="number"
                 id="contact"
                 name="contact"
-                placeholder="Enter Your Contact #"
+                placeholder="Enter Contact #"
                 value={contact || ''}
                 onChange={handleInputChange}
                 />

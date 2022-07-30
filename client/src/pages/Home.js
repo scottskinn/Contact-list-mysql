@@ -18,19 +18,20 @@ const Home = () => {
         loadData();
     }, []);
 
-    // const deleteContact = (id) => {
-    //     if(window.confirm ('Are you sure you want to DELETE your contact?')) {
-    //         axios.delete(`http://localhost:3001/api/remove/${id}`);
-    //         toast.success('Contact deleted successfully');
+    const deleteContact = (id) => {
+        if(window.confirm ('Are you sure you want to DELETE your contact?')) {
+            axios.delete(`http://localhost:3001/api/remove/${id}`);
+            toast.success('Contact deleted successfully');
 
-    //         data.filter((item) => {
-    //             return item.id !== id;
-    //         })
-    //         setTimeout(() => {
-    //             loadData();                
-    //         }, 1000);
-    //     }
-    // }
+            const newData = data.filter((item) => {
+                return item.id !== id;
+            })
+            return newData;
+            // setTimeout(() => {
+            //     newData;                
+            // }, 1000);
+        }
+    }
     
 
     return ( 
@@ -64,9 +65,16 @@ const Home = () => {
                                     <Link to={`/update/${item.id}`}>
                                         <button className='btn edit-btn'>Edit</button>
                                     </Link>
-                                    {/* <button className='btn delete-btn' onClick={deleteContact}>Delete</button> */}
                                     <Link to={`/view/${item.id}`}>
                                         <button className='btn view-btn'>View</button>
+                                    </Link>
+                                    <Link to={'/'}>
+                                        <button 
+                                            className='btn delete-btn' 
+                                            onClick={deleteContact}
+                                            >
+                                                Delete
+                                        </button>
                                     </Link>
                                 </td>
 
