@@ -10,9 +10,9 @@ const Home = () => {
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get('http://localhost:3001/api/get');
+        const response = await axios.get('http://localhost:3002/api/get');
         setData(response.data);
-    };
+    }
 
     useEffect(() => {
         loadData();
@@ -20,7 +20,7 @@ const Home = () => {
 
     const deleteContact = (id) => {
         if(window.confirm ('Are you sure you want to DELETE your contact?')) {
-            axios.delete(`http://localhost:3001/api/remove/${id}`);
+            axios.delete(`http://localhost:3002/api/remove/${id}`);
             toast.success('Contact deleted successfully');
 
             const newData = data.filter((item) => {

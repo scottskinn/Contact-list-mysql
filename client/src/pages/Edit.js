@@ -23,7 +23,7 @@ const Edit = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:3001/api/get/${id}`).then(response => {
+            axios.get(`http://localhost:3002/api/get/${id}`).then(response => {
                 setState({ ...response.data });
             });
         }
@@ -35,7 +35,7 @@ const Edit = () => {
             toast.error("Please fill all the fields");
         } else {
             if (!id) {
-                axios.post('http://localhost:3001/api/post', {
+                axios.post('http://localhost:3002/api/post', {
                     name,
                     email,
                     contact
@@ -46,7 +46,7 @@ const Edit = () => {
                 });
                 toast.success("Contact added successfully");
             } else {
-                axios.put(`http://localhost:3001/api/update/${id}`, {
+                axios.put(`http://localhost:3002/api/update/${id}`, {
                     name,
                     email,
                     contact
